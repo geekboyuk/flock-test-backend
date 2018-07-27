@@ -2,11 +2,15 @@
   "name": "flock-test-api",
   "version": "0.0.1",
   "description": "API to cache unstable and potentially insecure drone API",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/**/*.js | tap-spec"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tap-spec": "5.0.0",
+    "tape": "4.9.1"
+  }
 }
