@@ -6,7 +6,9 @@
   "scripts": {
     "gen-doc": "aglio -i documentation/drone.apib -o documentation/index.html",
     "build": "npm run gen-doc",
-    "test": "node ./tests/**/*.js | tap-spec"
+    "check-api": "dredd",
+    "test": "check-api && node ./tests/**/*.js | tap-spec",
+    "start": "node src/index.js"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
   "license": "UNLICENSED",
@@ -16,5 +18,9 @@
     "dredd": "5.1.11",
     "tap-spec": "5.0.0",
     "tape": "4.9.1"
+  },
+  "dependencies": {
+    "compression": "1.7.3",
+    "express": "4.16.3"
   }
 }
