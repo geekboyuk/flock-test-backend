@@ -5,10 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "gen-doc": "aglio -i documentation/drone.apib -o documentation/index.html",
-    "build": "npm run gen-doc",
+    "build": "yarn run gen-doc",
     "check-api": "dredd",
     "check-code": "node ./tests/**/*.js | tap-spec",
-    "test": "check-api && check-code",
+    "test": "yarn run check-api && yarn run check-code",
     "start": "node src/index.js"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
