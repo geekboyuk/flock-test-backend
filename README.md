@@ -13,6 +13,8 @@
 
    It was also assumed that the caching layer was purely for stability and not performance.  This is why I did not simply set the cache up as lazy loading.  It's also why I didn't create a simple read-through cache.
 
+   I've also assumed that all developers and environments are running on Linux or MacOS.  This is due to differences in command line calls.  I've done this purely for speed of coding.
+
 2. Which technologies did you choose? Why?
 
    As documentation of the API was mentioned as a weakness, I wanted to ensure that the API was properly documented.  For this reason I created an API Blueprint, for which documentation can be generated with a tool, such as Aglio.  
