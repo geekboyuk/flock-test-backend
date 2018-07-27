@@ -3,6 +3,7 @@ const express = require('express');
 
 const controllers = require('./controllers');
 const routes = require('./routes');
+const { logger } = require('./helpers');
 
 // TODO:
 // We should wait for the cache to be filled prior allowing API calls
@@ -18,4 +19,5 @@ app.use(compression());
 routes.initialise(app, controllers);
 
 // Finally listen to port 3000
-app.listen(3000, () => console.log('Drone API listening to port 3000'))
+const port = 3000;
+app.listen(port, () => logger.info('Drone API start', { port }));
