@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# generated files
+/documentation/*.html
+
 # misc
 .DS_Store
 .env

@@ -4,12 +4,15 @@
   "description": "API to cache unstable and potentially insecure drone API",
   "main": "src/index.js",
   "scripts": {
+    "gen-doc": "aglio -i documentation/drone.apib -o documentation/index.html",
+    "build": "npm run gen-doc",
     "test": "node ./tests/**/*.js | tap-spec"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "aglio": "2.3.0",
     "tap-spec": "5.0.0",
     "tape": "4.9.1"
   }
