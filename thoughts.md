@@ -29,3 +29,4 @@ API <=> Controller <=> Service <=> Original API
 * It should ba consistent and return errors only when it needs to.
 * It should follow best practices.
 * There is only one route version.  accept-version header should be used, but only when needed.  We'll set this up in the project and add a note.
+* Using latest version of Node, although in production may be better to run with latest LTS version
