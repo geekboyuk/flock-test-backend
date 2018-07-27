@@ -13,6 +13,7 @@
   "private": true,
   "devDependencies": {
     "aglio": "2.3.0",
+    "dredd": "5.1.11",
     "tap-spec": "5.0.0",
     "tape": "4.9.1"
   }
