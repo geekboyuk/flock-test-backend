@@ -8,7 +8,7 @@
     "build": "yarn run gen-doc",
     "check-api": "dredd",
     "check-code": "node ./tests/**/*.js | tap-spec",
-    "test": "yarn run check-api && yarn run check-code",
+    "test": "yarn run check-code",
     "start": "node src/index.js"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
