@@ -21,6 +21,8 @@
    
    API Documentation can become out of date with the end-points that the define.  I could have used Swagger instead of API Blueprint, and generated the end-points, however, I wanted full control over the definitions.  Instead I plan to create tests to ensure the documentation matches the exposed endpoints and use in CI.  I'm personally not keen on auto-generated code in production, as if it fails, it's typical to be during a time of crisis.
 
+   Wanted to call the host API multiple times, but there is no point in continually hammering it, so using library p-retry: It does exponential backoff and supports custom retry strategies for failed operations.
+
 3. What technical compromises did you have to make in order to achieve your solution? What is the severity of this tech debt, and what would a path to resolving it look like?
 
    Picking to create a custom caching mechanism meant more tests had to be created, instead of using a known and robust solution.  It should be easily replacable if required in the future.
@@ -38,4 +40,4 @@
 
 5. What future features do you think we might be able to build based on this API?
 
-> Note: thoughts.md shows my initial thinking upon reading the task specification
+> Note: thoughts.md shows my initial thinking upon reading the task specification.  I also went over time due to spending time up front thinking through problem.

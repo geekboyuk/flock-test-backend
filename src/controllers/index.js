@@ -1,5 +1,5 @@
 const drone = require('./drone');
 
-module.exports = {
-  drone,
-};
+module.exports = (api) => ({
+  drone: drone(api),
+});

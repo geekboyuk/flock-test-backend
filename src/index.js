@@ -1,23 +1,38 @@
 const compression = require('compression');
+require('dotenv').config();
 const express = require('express');
 
 const controllers = require('./controllers');
-const { logger } = require('./services');
+const { api, cache, logger } = require('./services');
 const routes = require('./routes');
 
-// TODO:
-// We should wait for the cache to be filled prior allowing API calls
-// For now I'm purely going to be creating the Express server so that I can
-// start testing the endpoints against the API Blueprint
 
-const app = express();
+const robustApi = api(process.env.HOST_API, cache);
 
-// gzip compression for Express - should be done in reverse proxy really
-app.use(compression());
+// Fill the cache before making the service available to clients
+robustApi
+  .fillCache(process.env.HOST_RETRIES)
+  .catch(err => {
+    console.error(err);
+    logger.error('Could not fill initial cache, exiting', { err });
+    process.exit(1);
+  })
+  .then(() => {
 
-// Define the entry points into the application
-routes.initialise(app, controllers);
-
-// Finally listen to port 3000
-const port = 3000;
-app.listen(port, () => logger.info('Drone API start', { port }));
+    const app = express();
+    
+    // gzip compression for Express - should be done in reverse proxy really
+    app.use(compression());
+    
+    // Define the entry points into the application
+    routes.initialise(app, controllers(robustApi), robustApi);
+    
+    // Finally listen to port
+    const port = process.env.PORT;
+    app.listen(port, () => logger.info('Drone API start', { port }));
+  })
+  .catch(err => {
+    console.error(err);
+    logger.error('API error', err);
+    process.exit(1);
+  });
