@@ -2,11 +2,30 @@
   "name": "flock-test-api",
   "version": "0.0.1",
   "description": "API to cache unstable and potentially insecure drone API",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen-doc": "aglio -i documentation/drone.apib -o documentation/index.html",
+    "build": "yarn run gen-doc",
+    "check-api": "dredd",
+    "check-code": "node ./tests/**/*.js | tap-spec",
+    "test": "yarn run check-code",
+    "start": "node src/index.js"
   },
   "author": "Chris Westcott <chris@westcottwideweb.com>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "aglio": "2.3.0",
+    "dredd": "5.1.11",
+    "tap-spec": "5.0.0",
+    "tape": "4.9.1"
+  },
+  "dependencies": {
+    "compression": "1.7.3",
+    "dotenv": "6.0.0",
+    "express": "4.16.3",
+    "node-fetch": "2.2.0",
+    "p-retry": "2.0.0",
+    "winston": "3.0.0"
+  }
 }

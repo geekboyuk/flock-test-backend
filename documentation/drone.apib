@@ -1,0 +1,60 @@
+FORMAT: 1A
+
+# Drone API
+This API provides details of products available from Bob's Epic Drone Shack.
+
+## Error States
+The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.
+
+# Group Drone
+Drone-related resources of *Bob's Epic Drone Shack*.
+
+## Drone [/api/drones/{id}]
+
+The Drone resource has the following attributes:
+
++ id
++ numFlights
++ name
++ currency
++ price
++ numCrashes
+
++ Parameters
+    + id: 1 (required, number) - ID of the Drone in the form of a number.
+
+### Retrieve a single drone [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "numFlights": 123,
+            "name": "Retro Encabulator",
+            "currency": "USD",
+            "price": 100000,
+            "numCrashes": 123
+        }
+
+## Drones Collection [/api/drones]
+
+### Return all drones in the collection [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-Total-Count: 1
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "numFlights": 123,
+                    "name": "Retro Encabulator",
+                    "currency": "USD",
+                    "price": 100000,
+                    "numCrashes": 123
+                }
+            ]

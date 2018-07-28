@@ -14,7 +14,8 @@ API <=> Controller <=> Service <=> Original API
 ### Controller
 
 * Decouple from the API end-point for testing
-* Simply pass through calls directly to the service layer
+* Simply pass through calls directly to the service layer, however
+* Replace ```droneId``` with ```id``` normalising the object to standard
 * Should return 503 until cache initialised
 
 ### API
@@ -29,3 +30,7 @@ API <=> Controller <=> Service <=> Original API
 * It should ba consistent and return errors only when it needs to.
 * It should follow best practices.
 * There is only one route version.  accept-version header should be used, but only when needed.  We'll set this up in the project and add a note.
+* Using latest version of Node, although in production may be better to run with latest LTS version
+* Future:
+   - normalise pricing
+   - price / crash value
