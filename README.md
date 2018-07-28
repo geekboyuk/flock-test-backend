@@ -23,6 +23,8 @@
 
    Wanted to call the host API multiple times, but there is no point in continually hammering it, so using library p-retry: It does exponential backoff and supports custom retry strategies for failed operations.
 
+   I choose tape as my testing library.  It's a very simple testing library with a large amount of tool support.  Although it is simple it can be added to with other small libraries, eg sinon, as required.
+
 3. What technical compromises did you have to make in order to achieve your solution? What is the severity of this tech debt, and what would a path to resolving it look like?
 
    Picking to create a custom caching mechanism meant more tests had to be created, instead of using a known and robust solution.  It should be easily replacable if required in the future.
@@ -30,6 +32,8 @@
    Although the original API included versioning, I've removed it for simplicity.  In the future the header ```accept-version``` should be used.  I've created the end-point structure to make this obvious.
 
    I added Dredd as a dependency, to make sure that the API documentation and calls were kept in sync.  It would be best to mock the host API and use this into a git pre-commit hook.  For now it is up to the developer to run it manually.  Simply ran out of time.
+
+   Ideally I'd have added more tests for the code I've written.  I've made sure I've added tests for the cache as it was custom written.
 
 4. How do we run your code?
 
