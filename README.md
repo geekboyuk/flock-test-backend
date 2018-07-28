@@ -29,6 +29,8 @@
 
    Although the original API included versioning, I've removed it for simplicity.  In the future the header ```accept-version``` should be used.  I've created the end-point structure to make this obvious.
 
+   I added Dredd as a dependency, to make sure that the API documentation and calls were kept in sync.  It would be best to mock the host API and use this into a git pre-commit hook.  For now it is up to the developer to run it manually.  Simply ran out of time.
+
 4. How do we run your code?
 
    On your local machine simply:

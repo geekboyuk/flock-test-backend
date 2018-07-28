@@ -17,6 +17,8 @@ const droneController = (api) => ({
   getAll: async (req, res) => {
     try {
       const drones = await api.all();
+
+      res.header('X-Total-Count', Object.keys(drones).length);
   
       res.send(drones);
     } catch (err) {
