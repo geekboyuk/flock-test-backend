@@ -32,12 +32,22 @@
 4. How do we run your code?
 
    On your local machine simply:
-   ```npm start```
+   `npm start`
 
    This is also running at:
-   ```herokuapp.com```
+   `herokuapp.com`
 
 
 5. What future features do you think we might be able to build based on this API?
 
 > Note: thoughts.md shows my initial thinking upon reading the task specification.  I also went over time due to spending time up front thinking through problem.
+
+# Env file
+
+You will require an `.env` file to specify the actual host URL, number of retries on startup and port number.  This is not commited to git as they should be set as environment variables on the platform.  The following is an example file content:
+
+```
+HOST_API = https://bobs-epic-drone-shack-inc.herokuapp.com
+HOST_RETRIES = 10
+PORT = 3000
+```
