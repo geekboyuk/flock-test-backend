@@ -27,6 +27,9 @@ robustApi
     
     // gzip compression for Express - should be done in reverse proxy really
     app.use(compression());
+
+    // Serve the documentation from route
+    app.get('/', express.static('documentation/built'));
     
     // Define the entry points into the application
     const controllers = initaliseControllers(robustApi);

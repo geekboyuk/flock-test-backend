@@ -4,8 +4,8 @@
   "description": "API to cache unstable and potentially insecure drone API",
   "main": "src/index.js",
   "scripts": {
-    "gen-doc": "aglio -i documentation/drone.apib -o documentation/index.html",
-    "build": "yarn run gen-doc",
+    "gen-doc": "aglio -i documentation/drone.apib -o documentation/built/index.html",
+    "postinstall" : "yarn run gen-doc",
     "check-api": "dredd",
     "check-code": "node ./tests/**/*.js | tap-spec",
     "test": "yarn run check-code",
@@ -14,6 +14,9 @@
   "author": "Chris Westcott <chris@westcottwideweb.com>",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "10.2"
+  },
   "devDependencies": {
     "aglio": "2.3.0",
     "dredd": "5.1.11",
