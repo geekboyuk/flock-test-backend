@@ -92,15 +92,14 @@ test('Can store and return multiple items from the cache', (t) => {
 });
 
 test('Trying to get a non-existant item from cache throws RangeError', (t) => {
-  t.plan(2);
+  t.plan(1);
 
   cache.clear();
   cache.add(1, 'Item 1');
   try {
     cache.get(2);
+    t.fail('Should not return a value');
   } catch (err) {
     t.ok(err instanceof RangeError, 'Should be RangeError');
   }
-
-  t.equal(cache.get(2), expected[2]);
 });

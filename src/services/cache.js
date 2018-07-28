@@ -18,7 +18,7 @@ const add = (key, value) => {
 };
 
 const get = (key) => {
-  if (!Object.keys(cache).includes(key)) {
+  if (!(key in cache)) {
     throw new RangeError(`Key ${key} not found in cache`);
   }
 

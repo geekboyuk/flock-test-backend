@@ -41,7 +41,9 @@
    `npm start`
 
    This is also running at:
-   `herokuapp.com`
+   `https://flock-test-backend.herokuapp.com/`
+
+   (with tests being run in CircleCI and master branch only deploying on success)
 
 
 5. What future features do you think we might be able to build based on this API?
