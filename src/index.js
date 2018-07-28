@@ -2,8 +2,8 @@ const compression = require('compression');
 const express = require('express');
 
 const controllers = require('./controllers');
+const { logger } = require('./services');
 const routes = require('./routes');
-const { logger } = require('./helpers');
 
 // TODO:
 // We should wait for the cache to be filled prior allowing API calls
