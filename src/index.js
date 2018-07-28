@@ -1,8 +1,9 @@
 const compression = require('compression');
 require('dotenv').config();
 const express = require('express');
+const helmet = require('helmet');
 
-const controllers = require('./controllers');
+const initaliseControllers = require('./controllers');
 const { api, cache, logger } = require('./services');
 const routes = require('./routes');
 
@@ -20,12 +21,16 @@ robustApi
   .then(() => {
 
     const app = express();
+
+    // Guard against some problems - default config is fine
+    app.use(helmet());
     
     // gzip compression for Express - should be done in reverse proxy really
     app.use(compression());
     
     // Define the entry points into the application
-    routes.initialise(app, controllers(robustApi), robustApi);
+    const controllers = initaliseControllers(robustApi);
+    routes.initialise(app, controllers, robustApi);
     
     // Finally listen to port
     const port = process.env.PORT;
