@@ -15,7 +15,7 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "10.2"
+    "node": "10.2.x"
   },
   "devDependencies": {
     "aglio": "2.3.0",
