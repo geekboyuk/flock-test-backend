@@ -20,7 +20,7 @@ test('Clearing an empty cache should empty the cache', (t) => {
 
 test('Clearing a cache with items should empty the cache', (t) => {
   t.plan(3);
-  
+
   cache.clear();
 
   cache.add(1, 'Item 1');
@@ -89,4 +89,17 @@ test('Can store and return multiple items from the cache', (t) => {
 
   t.equal(cache.get(1), expected[1]);
   t.equal(cache.get(2), expected[2]);
+});
+
+test('Trying to get a non-existant item from cache throws RangeError', (t) => {
+  t.plan(1);
+
+  cache.clear();
+  cache.add(1, 'Item 1');
+  try {
+    cache.get(2);
+    t.fail('Should not return a value');
+  } catch (err) {
+    t.ok(err instanceof RangeError, 'Should be RangeError');
+  }
 });

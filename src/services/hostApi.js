@@ -2,6 +2,14 @@ const fetch = require('node-fetch');
 
 const logger = require('./logger');
 
+const filterNullResponse = result => {
+  if (!result) {
+    throw new Error('Drone not found');
+  }
+
+  return result;
+};
+
 const normaliseDrone = result => ({
     id: result.droneId,
     numFlights: result.numFlights,
@@ -50,6 +58,7 @@ const get = (location, id) => {
   
   return fetch(url, options)
     .then(handleResponse)
+    .then(filterNullResponse)
     .then(normaliseDrone);
 };
 

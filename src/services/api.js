@@ -31,7 +31,7 @@ const all = async (api, cache) => {
     addDronesToCache(drones, cache);
   } catch (err) {
     // not logger.error() as we know api is unstable
-    logger.info('Error calling api.all', { name: err.name, message: err.message });
+    logger.info('Error calling api.all', { name: err.name, error: err.message });
   }
 
   return cache.all();
@@ -43,9 +43,11 @@ const get = async (api, cache, id) => {
     addDroneToCache(drone, cache)
   } catch (err) {
     // not logger.error() as we know api is unstable
-    logger.info('Error calling api.get', { name: err.name, message: err.message }); 
+    logger.info('Error calling api.get', { name: err.name, error: err.message }); 
   }
 
+  const value = cache.get(id)
+    return cache.get(id);
   return cache.get(id);
 };
 

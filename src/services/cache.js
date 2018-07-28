@@ -15,9 +15,15 @@ const all = () => Object.assign({}, cache);
 
 const add = (key, value) => {
   cache[key] = value;
-}
+};
 
-const get = key => cache[key];
+const get = (key) => {
+  if (!(key in cache)) {
+    throw new RangeError(`Key ${key} not found in cache`);
+  }
+
+  return cache[key];
+};
 
 module.exports = {
   add,
