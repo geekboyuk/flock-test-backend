@@ -66,4 +66,4 @@
 
     Beyond this, an insurance cost could be calculated, which could take the risk profile and apply it with the cost of the device to calculate a premium.  This would not be enough to cover any legal costs however and be purely be for device replacement.
 
-> Note: thoughts.md shows my initial thinking upon reading the task specification.  I also went over time due to spending time up front thinking through problem.
+> Note: [thoughts.md](thoughts.md) shows my initial thinking upon reading the task specification.  For openness: I went over time due to spending time up front thinking through problem.
